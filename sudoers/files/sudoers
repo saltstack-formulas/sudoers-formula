@@ -1,0 +1,24 @@
+{% set sudoers = pillar.get('sudoers', {}) %}
+{% set users = sudoers.get('users', {} %}
+{% set groups = sudoers.get('users', {} %}
+{% set includedir = sudoers.get('includedir', None) %}
+
+#
+# This file is managed by salt
+#
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+# User privilege specification
+
+
+# Group privilege specification
+
+{% if includes %}
+includedir {{ includedir }}
+{% else %}
+#includedir /etc/sudoers.d
+{% endif %}

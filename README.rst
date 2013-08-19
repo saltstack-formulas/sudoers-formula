@@ -1,7 +1,7 @@
 sudoers
 =======
 
-Set up the sudoers file
+Set up the sudoers file (WORK IN PROGRESS)
 
 .. note::
 

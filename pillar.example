@@ -1,0 +1,19 @@
+sudoers:
+  users:
+    # Simple user
+    johndoe:
+      - commands:
+        - ALL
+    # Defaults
+    janedoe:
+      - hosts: ALL
+      - runas: ALL
+      - commands:
+        - ALL
+  groups:
+    sudo:
+      - commands:
+        # Command tags
+        - ALL:
+          - NOPASSWD
+  #include: /etc/sudoers.d
