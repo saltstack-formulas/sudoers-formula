@@ -2,7 +2,7 @@
 
 sudo:
   pkg.installed:
-    - name: {{ pkg.sudo }}
+    - name: {{ pkgs.sudo }}
 
 /etc/sudoers
   file.managed:
