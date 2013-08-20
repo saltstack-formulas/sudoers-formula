@@ -1,6 +1,4 @@
 {% set sudoers = pillar.get('sudoers', {}) %}
-{% set users = sudoers.get('users', {} %}
-{% set groups = sudoers.get('users', {} %}
 {% set includedir = sudoers.get('includedir', None) %}
 
 #
@@ -13,7 +11,9 @@
 # Cmnd alias specification
 
 # User privilege specification
-
+{%- for userspec in users %}
+{{ userspec }}
+{%- endfor %}
 
 # Group privilege specification
 

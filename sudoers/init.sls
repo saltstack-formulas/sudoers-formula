@@ -1,10 +1,10 @@
 sudo:
   pkg.installed
 
-/etc/sudoers:
+/etc/sudoers.test:
   file.managed:
     - user: root
     - group: root
     - mode: 440
-    - template: jinja
-    - source: salt://sudoders/files/sudoers
+    - template: py
+    - source: salt://sudoers/files/sudoers.py
