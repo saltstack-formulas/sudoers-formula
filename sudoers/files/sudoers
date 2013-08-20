@@ -1,0 +1,43 @@
+{% set sudoers = pillar.get('sudoers', {}) %}
+{% set defaults = sudoers.get('defaults', []) %}
+{% set aliases = sudoers.get('aliases', {}) %}
+{% set host_aliases = aliases.get('host', []) %}
+{% set user_aliases = aliases.get('user', []) %}
+{% set cmnd_aliases = aliases.get('commands', []) %}
+{% set runas_aliases = aliases.get('runas', []) %}
+{% set users = sudoers.get('users', {}) %}
+{% set groups = sudoers.get('groups', {}) %}
+{% set includedir = sudoers.get('includedir', None) %}
+#
+# This file is managed by salt
+#
+
+{% for default in defaults -%}
+Defaults {{ default }}
+{%- endfor %}
+
+# Host alias specification
+{% for default in defaults -%}
+Defaults {{ default }}
+{%- endfor %}
+
+# User alias specification
+{{ user_aliases }}
+
+# Cmnd alias specification
+{{ cmnd_aliases }}
+
+# Runas alias specification
+{{ runas_aliases }}
+
+# User privilege specification
+{{ users }}
+
+# Group privilege specification
+{{ groups }}
+
+{% if includes %}
+includedir {{ includedir }}
+{% else %}
+#includedir /etc/sudoers.d
+{% endif %}

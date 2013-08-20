@@ -1,0 +1,28 @@
+sudoers:
+  users:
+    johndoe: 'ALL=(ALL) ALL'
+  groups:
+    sudo: 'ALL=(ALL) NOPASSWD: ALL'
+  defaults:
+    - env_reset
+    - mail_badpass
+    - secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  aliases:
+    hosts:
+      - WEBSERVERS:
+        - www1
+        - www2
+        - www3
+    users:
+      - ADMINS:
+        - millert
+        - dowdy
+        - mikef
+    commands:
+      - PROCESSES:
+        - /usr/bin/nice
+        - /bin/kill
+        - /usr/bin/renice
+        - /usr/bin/pkill
+        - /usr/bin/top
+  #include: /etc/sudoers.d
