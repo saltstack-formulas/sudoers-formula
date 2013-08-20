@@ -1,0 +1,10 @@
+sudoers:
+  users:
+    # Simple user
+    johndoe:
+      - ALL: ALL
+    # List of users
+    janedoe,marydoe:
+      # Multiple hosts
+      - ALL: ALL
+  #include: /etc/sudoers.d
