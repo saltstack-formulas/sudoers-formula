@@ -17,34 +17,34 @@ Defaults {{ default }}
 {% endfor %}
 
 # Host alias specification
-{% for name,hosts in host_aliases.items() %}
+{%- for name,hosts in host_aliases.items() %}
 Host_Alias {{ name }} = {{ ",".join(hosts) }}
-{% endfor %}
+{%- endfor %}
 
 # User alias specification
-{% for name,users in user_aliases.items() %}
+{%- for name,users in user_aliases.items() %}
 User_Alias {{ name }} = {{ ",".join(users) }}
-{% endfor %}
+{%- endfor %}
 
 # Cmnd alias specification
-{% for name,commands in command_aliases.items() %}
+{%- for name,commands in command_aliases.items() %}
 Cmnd_Alias {{ name }} = {{ ",".join(commands) }}
-{% endfor %}
+{%- endfor %}
 
 # Runas alias specification
-{% for name,runas in runas_aliases.items() %}
+{%- for name,runas in runas_aliases.items() %}
 Runas_Alias {{ name }} = {{ ",".join(runas) }}
-{% endfor %}
+{%- endfor %}
 
 # User privilege specification
-{% for user,spec in users.items() %}
+{%- for user,spec in users.items() %}
 {{ user }} {{ spec }}
-{% endfor %}
+{%- endfor %}
 
 # Group privilege specification
-{% for group,spec in groups.items() %}
+{%- for group,spec in groups.items() %}
 %{{ group }} {{ spec }}
-{% endfor %}
+{%- endfor %}
 
 {% if includedir %}
 includedir {{ includedir }}
