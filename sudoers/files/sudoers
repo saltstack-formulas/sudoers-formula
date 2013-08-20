@@ -37,12 +37,12 @@ Runas_Alias {{ name }} = {{ ",".join(runas) }}
 {% endfor %}
 
 # User privilege specification
-{% for user,spec in users %}
+{% for user,spec in users.items() %}
 {{ user }} {{ spec }}
 {% endfor %}
 
 # Group privilege specification
-{% for group,spec in groups %}
+{% for group,spec in groups.items() %}
 %{{ group }} {{ spec }}
 {% endfor %}
 
