@@ -1,2 +1,2 @@
-def run(**kwargs):
-    return str(kwargs)
+def run():
+    return str(__pillar__)
