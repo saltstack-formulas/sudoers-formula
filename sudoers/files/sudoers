@@ -1,8 +1,8 @@
 {% set sudoers = pillar.get('sudoers', {}) %}
 {% set defaults = sudoers.get('defaults', []) %}
 {% set aliases = sudoers.get('aliases', {}) %}
-{% set host_aliases = aliases.get('host', []) %}
-{% set user_aliases = aliases.get('user', []) %}
+{% set host_aliases = aliases.get('hosts', []) %}
+{% set user_aliases = aliases.get('users', []) %}
 {% set cmnd_aliases = aliases.get('commands', []) %}
 {% set runas_aliases = aliases.get('runas', []) %}
 {% set users = sudoers.get('users', {}) %}
@@ -14,12 +14,12 @@
 
 {% for default in defaults -%}
 Defaults {{ default }}
-{%- endfor %}
+{% endfor %}
 
 # Host alias specification
-{% for default in defaults -%}
-Defaults {{ default }}
-{%- endfor %}
+{% for name,hosts in host_aliases.items() %}
+Host_Alias {{ name }} = {{ ",".join(hosts) }}
+{% endfor %}
 
 # User alias specification
 {{ user_aliases }}
