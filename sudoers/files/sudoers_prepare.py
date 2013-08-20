@@ -1,4 +1,4 @@
 
 
 def run():
-    return str(grains.get())
+    return str(pillar.get('sudoers'))
