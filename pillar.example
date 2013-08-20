@@ -25,4 +25,4 @@ sudoers:
         - /usr/bin/renice
         - /usr/bin/pkill
         - /usr/bin/top
-  include: /etc/sudoers.d
+  includedir: /etc/sudoers.d

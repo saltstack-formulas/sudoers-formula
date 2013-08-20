@@ -36,7 +36,7 @@ Defaults {{ default }}
 # Group privilege specification
 {{ groups }}
 
-{% if includes %}
+{% if includedir %}
 includedir {{ includedir }}
 {% else %}
 #includedir /etc/sudoers.d
