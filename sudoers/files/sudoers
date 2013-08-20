@@ -11,9 +11,7 @@
 # Cmnd alias specification
 
 # User privilege specification
-{%- for userspec in users %}
-{{ userspec }}
-{%- endfor %}
+{{ users }}
 
 # Group privilege specification
 
