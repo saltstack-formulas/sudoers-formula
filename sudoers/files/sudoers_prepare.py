@@ -1,4 +1,4 @@
 
 
 def run():
-    return str(__grains__)
+    return str(grains.get())
