@@ -15,7 +15,6 @@
 {% for default in defaults -%}
 Defaults {{ default }}
 {% endfor %}
-
 # Host alias specification
 {%- for name,hosts in host_aliases.items() %}
 Host_Alias {{ name }} = {{ ",".join(hosts) }}
