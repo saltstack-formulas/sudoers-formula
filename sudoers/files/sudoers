@@ -1,13 +1,13 @@
 {% set sudoers = pillar.get('sudoers', {}) %}
-{% set defaults = sudoers.get('defaults', []) %}
-{% set aliases = sudoers.get('aliases', {}) %}
-{% set host_aliases = aliases.get('hosts', {}) %}
-{% set user_aliases = aliases.get('users', {}) %}
-{% set command_aliases = aliases.get('commands', {}) %}
-{% set runas_aliases = aliases.get('runas', {}) %}
-{% set users = sudoers.get('users', {}) %}
-{% set groups = sudoers.get('groups', {}) %}
-{%- set includedir = sudoers.get('includedir', None) %}
+{%- set defaults = sudoers.get('defaults', []) %}
+{%- set aliases = sudoers.get('aliases', {}) %}
+{%- set host_aliases = aliases.get('hosts', {}) %}
+{%- set user_aliases = aliases.get('users', {}) %}
+{%- set command_aliases = aliases.get('commands', {}) %}
+{%- set runas_aliases = aliases.get('runas', {}) %}
+{%- set users = sudoers.get('users', {}) %}
+{%- set groups = sudoers.get('groups', {}) %}
+{%- set includedir = sudoers.get('includedir', None) -%}
 #
 # This file is managed by salt
 #
