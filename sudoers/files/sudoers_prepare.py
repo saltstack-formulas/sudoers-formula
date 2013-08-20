@@ -1,2 +1,2 @@
 def run(**kwargs):
-    print kwargs
+    return str(kwargs)
