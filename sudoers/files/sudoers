@@ -7,7 +7,7 @@
 {% set runas_aliases = aliases.get('runas', {}) %}
 {% set users = sudoers.get('users', {}) %}
 {% set groups = sudoers.get('groups', {}) %}
-{% set includedir = sudoers.get('includedir', None) %}
+{%- set includedir = sudoers.get('includedir', None) %}
 #
 # This file is managed by salt
 #
