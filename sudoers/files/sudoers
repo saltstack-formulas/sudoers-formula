@@ -1,10 +1,10 @@
 {% set sudoers = pillar.get('sudoers', {}) %}
 {% set defaults = sudoers.get('defaults', []) %}
 {% set aliases = sudoers.get('aliases', {}) %}
-{% set host_aliases = aliases.get('hosts', []) %}
-{% set user_aliases = aliases.get('users', []) %}
-{% set cmnd_aliases = aliases.get('commands', []) %}
-{% set runas_aliases = aliases.get('runas', []) %}
+{% set host_aliases = aliases.get('hosts', {}) %}
+{% set user_aliases = aliases.get('users', {}) %}
+{% set command_aliases = aliases.get('commands', {}) %}
+{% set runas_aliases = aliases.get('runas', {}) %}
 {% set users = sudoers.get('users', {}) %}
 {% set groups = sudoers.get('groups', {}) %}
 {% set includedir = sudoers.get('includedir', None) %}
@@ -22,19 +22,29 @@ Host_Alias {{ name }} = {{ ",".join(hosts) }}
 {% endfor %}
 
 # User alias specification
-{{ user_aliases }}
+{% for name,users in user_aliases.items() %}
+User_Alias {{ name }} = {{ ",".join(users) }}
+{% endfor %}
 
 # Cmnd alias specification
-{{ cmnd_aliases }}
+{% for name,commands in command_aliases.items() %}
+Cmnd_Alias {{ name }} = {{ ",".join(commands) }}
+{% endfor %}
 
 # Runas alias specification
-{{ runas_aliases }}
+{% for name,runas in runas_aliases.items() %}
+Runas_Alias {{ name }} = {{ ",".join(runas) }}
+{% endfor %}
 
 # User privilege specification
-{{ users }}
+{% for user,spec in users %}
+{{ user }} {{ spec }}
+{% endfor %}
 
 # Group privilege specification
-{{ groups }}
+{% for group,spec in groups %}
+%{{ group }} {{ spec }}
+{% endfor %}
 
 {% if includedir %}
 includedir {{ includedir }}
