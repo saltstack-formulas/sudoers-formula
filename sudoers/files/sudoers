@@ -46,7 +46,7 @@ Runas_Alias {{ name }} = {{ ",".join(runas) }}
 {%- endfor %}
 
 {% if includedir %}
-includedir {{ includedir }}
+#includedir {{ includedir }}
 {% else %}
 #includedir /etc/sudoers.d
 {% endif %}
