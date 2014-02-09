@@ -1,7 +1,7 @@
 sudoers
 =======
 
-Set up the sudoers file
+Set up sudo and the sudoers included files.
 
 .. note::
 
@@ -13,3 +13,6 @@ Available states
 
 ``sudoers``
     Set up the sudoers file
+
+``sudoers.included``
+    Set up an additional sudoers included file

@@ -1,4 +1,9 @@
-{% set sudoers = pillar.get('sudoers', {}) %}
+{%- if (not included) %}
+  {%- set sudoers = pillar.get('sudoers', {}) %}
+  {%- set includedir = sudoers.get('includedir', '/etc/sudoers.d') -%}
+{%- else %}
+  {%- set includedir = sudoers.get('includedir', None) %}
+{%- endif %}
 {%- set defaults = sudoers.get('defaults', []) %}
 {%- set aliases = sudoers.get('aliases', {}) %}
 {%- set host_aliases = aliases.get('hosts', {}) %}
@@ -6,8 +11,7 @@
 {%- set command_aliases = aliases.get('commands', {}) %}
 {%- set runas_aliases = aliases.get('runas', {}) %}
 {%- set users = sudoers.get('users', {}) %}
-{%- set groups = sudoers.get('groups', {}) %}
-{%- set includedir = sudoers.get('includedir', None) -%}
+{%- set groups = sudoers.get('groups', {}) -%}
 #
 # This file is managed by salt
 #
@@ -47,6 +51,4 @@ Runas_Alias {{ name }} = {{ ",".join(runas) }}
 
 {% if includedir %}
 #includedir {{ includedir }}
-{% else %}
-#includedir /etc/sudoers.d
 {% endif %}
