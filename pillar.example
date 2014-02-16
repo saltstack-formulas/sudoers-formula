@@ -26,3 +26,9 @@ sudoers:
         - /usr/bin/pkill
         - /usr/bin/top
   includedir: /etc/sudoers.d
+  included_files:
+    /etc/sudoers.d/extra-file:
+      users:
+        foo: 'ALL=(ALL) ALL'
+      groups:
+        bargroup: 'ALL=(ALL) NOPASSWD: ALL'
