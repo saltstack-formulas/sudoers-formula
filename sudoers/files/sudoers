@@ -9,7 +9,12 @@
     {%- set users = sudoers.get('users', {'root': 'ALL=(ALL:ALL) ALL'}) %}
     {%- set groups = sudoers.get('groups', {'sudo': 'ALL=(ALL:ALL) ALL'}) %}
   {%- else %}
-    {%- set defaults = sudoers.get('defaults', []) %}
+    {%- set defaults = sudoers.get('defaults', {}) %}
+    {%- set generic_defaults = defaults.get('generic', []) %}
+    {%- set user_list_defaults = defaults.get('user_list', {}) %}
+    {%- set host_list_defaults = defaults.get('host_list', {}) %}
+    {%- set command_list_defaults = defaults.get('command_list', {}) %}
+    {%- set runas_list_defaults = defaults.get('runas_list', {}) %}
     {%- set users = sudoers.get('users', {}) %}
     {%- set groups = sudoers.get('groups', {}) %}
   {%- endif %}
@@ -29,9 +34,23 @@
 # This file is managed by salt
 #
 
-{% for default in defaults -%}
+# Defaults specification
+{% for default in generic_defaults -%}
 Defaults {{ default }}
 {% endfor %}
+{%- for user,spec in user_list_defaults.items() %}
+Defaults:{{ user }} {{ spec }}
+{%- endfor %}
+{%- for host,spec in host_list_defaults.items() %}
+Defaults@{{ host }} {{ spec }}
+{%- endfor %}
+{%- for command,spec in command_list_defaults.items() %}
+Defaults!{{ user }} {{ spec }}
+{%- endfor %}
+{%- for user,spec in runas_list_defaults.items() %}
+Defaults>{{ user }} {{ spec }}
+{%- endfor %}
+
 # Host alias specification
 {%- for name,hosts in host_aliases.items() %}
 Host_Alias {{ name }} = {{ ",".join(hosts) }}

@@ -4,9 +4,19 @@ sudoers:
   groups:
     sudo: 'ALL=(ALL) NOPASSWD: ALL'
   defaults:
-    - env_reset
-    - mail_badpass
-    - secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    generic:
+      - env_rset
+      - mail_badpass
+      - secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    user_list:
+      johndoe: '!requiretty'
+      ADMINS: '!lecture'
+    host_list:
+      www1: 'log_year, logfile=/var/log/sudo.log'
+    command_list:
+      PROCESSES: 'noexec'
+    runas_list:
+      root: '!set_logname'
   aliases:
     hosts:
       WEBSERVERS:
