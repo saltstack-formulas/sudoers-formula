@@ -10,7 +10,7 @@
     {%- set groups = sudoers.get('groups', {'sudo': 'ALL=(ALL:ALL) ALL'}) %}
   {%- else %}
     {%- set defaults = sudoers.get('defaults', {}) %}
-    {%- set generic_defaults = defaults.get('generic', []) %}
+    {%- set generic_defaults = defaults.get('generic', {}) %}
     {%- set user_list_defaults = defaults.get('user_list', {}) %}
     {%- set host_list_defaults = defaults.get('host_list', {}) %}
     {%- set command_list_defaults = defaults.get('command_list', {}) %}
