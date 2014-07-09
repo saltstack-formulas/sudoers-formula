@@ -45,10 +45,10 @@ Defaults:{{ user }} {{ spec }}
 Defaults@{{ host }} {{ spec }}
 {%- endfor %}
 {%- for command,spec in command_list_defaults.items() %}
-Defaults!{{ user }} {{ spec }}
+Defaults!{{ command }} {{ spec }}
 {%- endfor %}
-{%- for user,spec in runas_list_defaults.items() %}
-Defaults>{{ user }} {{ spec }}
+{%- for runas,spec in runas_list_defaults.items() %}
+Defaults>{{ runas }} {{ spec }}
 {%- endfor %}
 
 # Host alias specification
