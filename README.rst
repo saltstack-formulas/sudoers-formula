@@ -9,10 +9,17 @@ Set up sudo and the sudoers included files.
     <http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_.
 
 Available states
-----------------
+================
+
+.. contents::
+    :local:
 
 ``sudoers``
-    Set up the sudoers file
+-----------
+
+Set up the sudoers file
 
 ``sudoers.included``
-    Set up an additional sudoers included file
+--------------------
+
+Set up an additional sudoers included file
