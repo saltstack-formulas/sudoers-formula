@@ -82,13 +82,17 @@ Runas_Alias {{ name }} = {{ ",".join(runas) }}
 {%- endfor %}
 
 # User privilege specification
-{%- for user,spec in users.items() %}
+{%- for user,specs in users.items() %}
+  {%- for spec in specs %}
 {{ user }} {{ spec }}
+  {%- endfor %}
 {%- endfor %}
 
 # Group privilege specification
-{%- for group,spec in groups.items() %}
+{%- for group,specs in groups.items() %}
+  {%- for spec in specs %}
 %{{ group }} {{ spec }}
+  {%- endfor %}
 {%- endfor %}
 
 {% if includedir %}

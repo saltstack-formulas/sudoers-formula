@@ -1,8 +1,12 @@
 sudoers:
   users:
-    johndoe: 'ALL=(ALL) ALL'
+    johndoe: 
+      - 'ALL=(ALL) ALL'
+      - 'ALL=(root) NOPASSWD: /etc/init.d/httpd'
   groups:
-    sudo: 'ALL=(ALL) NOPASSWD: ALL'
+    sudo: 
+      - 'ALL=(ALL) ALL'
+      - 'ALL=(nodejs) NOPASSWD: ALL'
   defaults:
     generic:
       - env_rset
@@ -39,6 +43,8 @@ sudoers:
   included_files:
     /etc/sudoers.d/extra-file:
       users:
-        foo: 'ALL=(ALL) ALL'
+        foo: 
+          - 'ALL=(ALL) ALL'
       groups:
-        bargroup: 'ALL=(ALL) NOPASSWD: ALL'
+        bargroup: 
+          - 'ALL=(ALL) NOPASSWD: ALL'
