@@ -1,5 +1,5 @@
-sudoers
-=======
+sudoers=formula
+===============
 
 Set up sudo and the sudoers included files.
 
