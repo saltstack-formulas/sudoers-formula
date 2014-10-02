@@ -1,3 +1,5 @@
+{% from "sudoers/package-map.jinja" import pkgs with context %}
+
 include:
   - sudoers
 
@@ -15,5 +17,5 @@ include:
         included: True
         sudoers: {{ spec }}
     - require:
-      - file: /etc/sudoers
+      - file: {{ pkgs.get('config-path', '/etc') }}/sudoers
 {% endfor %}

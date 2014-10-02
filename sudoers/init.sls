@@ -4,7 +4,7 @@ sudo:
   pkg.installed:
     - name: {{ pkgs.sudo }}
 
-/etc/sudoers:
+{{ pkgs.get('config-path', '/etc') }}/sudoers:
   file.managed:
     - user: root
     - group: root

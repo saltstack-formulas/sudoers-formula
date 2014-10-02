@@ -1,10 +1,10 @@
 sudoers:
   users:
-    johndoe: 
+    johndoe:
       - 'ALL=(ALL) ALL'
       - 'ALL=(root) NOPASSWD: /etc/init.d/httpd'
   groups:
-    sudo: 
+    sudo:
       - 'ALL=(ALL) ALL'
       - 'ALL=(nodejs) NOPASSWD: ALL'
   defaults:
@@ -43,8 +43,8 @@ sudoers:
   included_files:
     /etc/sudoers.d/extra-file:
       users:
-        foo: 
+        foo:
           - 'ALL=(ALL) ALL'
       groups:
-        bargroup: 
+        bargroup:
           - 'ALL=(ALL) NOPASSWD: ALL'

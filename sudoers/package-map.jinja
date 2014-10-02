@@ -1,12 +1,14 @@
 {% set package_table = {
-    'Debian': {'sudo': 'sudo'},
-    'Ubuntu': {'sudo': 'sudo'},
-    'CentOS': {'sudo': 'sudo'},
-    'Fedora': {'sudo': 'sudo'},
-    'RedHat': {'sudo': 'sudo'},
-    'Amazon': {'sudo': 'sudo'},
-    'Gentoo': {'sudo': 'app-admin/sudo'},
-    'Mint': {'sudo': 'sudo'}
+    'Debian':  {'sudo': 'sudo'},
+    'Ubuntu':  {'sudo': 'sudo'},
+    'CentOS':  {'sudo': 'sudo'},
+    'Fedora':  {'sudo': 'sudo'},
+    'RedHat':  {'sudo': 'sudo'},
+    'Amazon':  {'sudo': 'sudo'},
+    'Gentoo':  {'sudo': 'app-admin/sudo'},
+    'Mint':    {'sudo': 'sudo'},
+    'FreeBSD': {'sudo': 'sudo',
+                'config-path': '/usr/local/etc/'}
 } %}
 
 {% if 'package_table' in pillar %}
