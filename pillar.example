@@ -9,7 +9,7 @@ sudoers:
       - 'ALL=(nodejs) NOPASSWD: ALL'
   defaults:
     generic:
-      - env_rset
+      - env_reset
       - mail_badpass
       - secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
     user_list:
