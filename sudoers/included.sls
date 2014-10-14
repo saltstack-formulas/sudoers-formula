@@ -9,7 +9,7 @@ include:
 {{ included_file }}:
   file.managed:
     - user: root
-    - group: root
+    - group: {{ pkgs.get('group', 'root') }}
     - mode: 440
     - template: jinja
     - source: salt://sudoers/files/sudoers

@@ -8,7 +8,8 @@
     'Gentoo':  {'sudo': 'app-admin/sudo'},
     'Mint':    {'sudo': 'sudo'},
     'FreeBSD': {'sudo': 'sudo',
-                'config-path': '/usr/local/etc/'}
+                'config-path': '/usr/local/etc',
+                'group': 'wheel'}
 } %}
 
 {% if 'package_table' in pillar %}

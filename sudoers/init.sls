@@ -7,7 +7,7 @@ sudo:
 {{ pkgs.get('config-path', '/etc') }}/sudoers:
   file.managed:
     - user: root
-    - group: root
+    - group: {{ pkgs.get('group', 'root') }}
     - mode: 440
     - template: jinja
     - source: salt://sudoers/files/sudoers
