@@ -96,5 +96,5 @@ Runas_Alias {{ name }} = {{ ",".join(runas) }}
 {%- endfor %}
 
 {% if includedir %}
-includedir {{ includedir }}
+#includedir {{ includedir }}
 {% endif %}
