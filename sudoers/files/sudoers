@@ -96,5 +96,7 @@ Runas_Alias {{ name }} = {{ ",".join(runas) }}
 {%- endfor %}
 
 {% if includedir %}
-includedir {{ includedir }}
+## Read drop-in files from /etc/sudoers.d
+## (the '#' here does not indicate a comment)
+#includedir {{ includedir }}
 {% endif %}
