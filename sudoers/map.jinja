@@ -1,0 +1,14 @@
+{% set sudoers = salt['grains.filter_by']({
+    'Debian':  {'pkg': 'sudo'},
+    'Ubuntu':  {'pkg': 'sudo'},
+    'CentOS':  {'pkg': 'sudo'},
+    'Fedora':  {'pkg': 'sudo'},
+    'RedHat':  {'pkg': 'sudo'},
+    'Amazon':  {'pkg': 'sudo'},
+    'Gentoo':  {'pkg': 'app-admin/sudo'},
+    'Mint':    {'pkg': 'sudo'},
+    'Arch':    {'pkg': 'sudo'},
+    'FreeBSD': {'pkg': 'sudo',
+                'config-path': '/usr/local/etc',
+                'group': 'wheel'},
+}, merge=salt['pillar.get']('sudoers:lookup')) %}
