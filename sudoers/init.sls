@@ -2,7 +2,7 @@
 
 sudo:
   pkg.installed:
-    - name: {{ sudoers.pkgs|json }}
+    - name: {{ sudoers.pkg }}
 
 {{ sudoers.get('config-path', '/etc') }}/sudoers:
   file.managed:
