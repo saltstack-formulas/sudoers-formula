@@ -1,4 +1,4 @@
-{% from "sudoers/package-map.jinja" import pkgs with context %}
+{% from "sudoers/map.jinja" import sudoers with context %}
 
 include:
   - sudoers
@@ -9,7 +9,7 @@ include:
 {{ included_file }}:
   file.managed:
     - user: root
-    - group: {{ pkgs.get('group', 'root') }}
+    - group: {{ sudoers.get('group', 'root') }}
     - mode: 440
     - template: jinja
     - source: salt://sudoers/files/sudoers
@@ -17,5 +17,5 @@ include:
         included: True
         sudoers: {{ spec }}
     - require:
-      - file: {{ pkgs.get('config-path', '/etc') }}/sudoers
+      - file: {{ sudoers.get('config-path', '/etc') }}/sudoers
 {% endfor %}
