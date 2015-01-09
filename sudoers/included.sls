@@ -15,7 +15,7 @@ include:
     - source: salt://sudoers/files/sudoers
     - context:
         included: True
-        sudoers: {{ spec }}
+        sudoers: {{ spec|json }}
     - require:
       - file: {{ sudoers.get('config-path', '/etc') }}/sudoers
 {% endfor %}
