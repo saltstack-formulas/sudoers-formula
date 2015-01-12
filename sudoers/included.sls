@@ -3,7 +3,7 @@
 include:
   - sudoers
 
-{% set sudoers = pillar.get('sudoers', {}) %}
+{% do sudoers.update(pillar.get('sudoers', {})) %}
 {% set included_files = sudoers.get('included_files', {}) %}
 {% for included_file,spec in included_files.items() -%}
 {{ included_file }}:
