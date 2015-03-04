@@ -1,8 +1,9 @@
 sudoers:
   users:
-    johndoe:
+    root:
+      - 'ALL=(root) NOPASSWD: ALL'
+    vagrant:
       - 'ALL=(ALL) ALL'
-      - 'ALL=(root) NOPASSWD: /etc/init.d/httpd'
   groups:
     sudo:
       - 'ALL=(ALL) ALL'
