@@ -2,15 +2,15 @@
 
 sudo:
   pkg.installed:
-    - name: {{ sudoers.pkg }}
+    - name: {{ sudoers.lookup.pkg }}
 
-{{ sudoers.get('config-path', '/etc') }}/sudoers:
+{{ sudoers.get('lookup:config-path', '/etc') }}/sudoers:
   file.managed:
     - user: root
-    - group: {{ sudoers.get('group', 'root') }}
+    - group: {{ sudoers.get('lookup:group', 'root') }}
     - mode: 440
     - template: jinja
-    - source: salt://sudoers/files/sudoers
+    - source: salt://sudoers/templates/etc/sudoers
     - context:
         included: False
     - require:
