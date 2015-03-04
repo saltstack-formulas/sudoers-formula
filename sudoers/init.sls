@@ -10,7 +10,7 @@ sudo:
     - group: {{ sudoers.get('lookup:group', 'root') }}
     - mode: 440
     - template: jinja
-    - source: salt://sudoers/templates/etc/sudoers
+    - source: salt://sudoers/templates/etc/sudoers.jinja
     - context:
         included: False
     - require:

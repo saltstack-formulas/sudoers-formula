@@ -1,16 +1,30 @@
 {% set sudoers = salt['grains.filter_by']({
-
-    'Debian':  { 'lookup': {'pkg': 'sudo'}},
-    'Ubuntu':  { 'lookup': {'pkg': 'sudo'}},
-    'CentOS':  { 'lookup':{'pkg': 'sudo'}},
-    'Fedora':  { 'lookup':{'pkg': 'sudo'}},
-    'RedHat':  { 'lookup':{'pkg': 'sudo'}},
-    'Amazon':  { 'lookup':{'pkg': 'sudo'}},
+    'defaults': {
+                'lookup': {
+                    'pkg': 'sudo',
+                    },
+                'included': False,
+                'includedir': None,
+                },
+    'Debian': {
+                'lookup': {
+                  'pkg': 'sudo',
+                },
+                'defaults': {
+                  'generic': [
+                    'env_reset',
+                    'mail_badpass',
+                    'secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"',
+                    ],
+                },
+                'users':  {'root': ['ALL=(ALL:ALL) ALL']},
+                'groups': {'sudo': ['ALL=(ALL:ALL) ALL']},
+                'includedir': None,
+               },
     'Gentoo':  { 'lookup':{'pkg': 'app-admin/sudo'}},
-    'Mint':    { 'lookup':{'pkg': 'sudo'}},
-    'Arch':    { 'lookup':{'pkg': 'sudo'}},
     'FreeBSD': { 'lookup':{'pkg': 'sudo',
                 'config-path': '/usr/local/etc',
                 'group': 'wheel'},
                },
-}, merge=salt['pillar.get']('sudoers')) %}
+}, grain='os_family', merge=salt['pillar.get']('sudoers'), default='defaults') %}
+
