@@ -13,6 +13,7 @@
     {%- set runas_list_defaults = defaults.get('runas_list', {}) %}
     {%- set users = sudoers.get('users', {'root': ['ALL=(ALL:ALL) ALL']}) %}
     {%- set groups = sudoers.get('groups', {'sudo': ['ALL=(ALL:ALL) ALL']}) %}
+    {%- set network_groups = sudoers.get('network_groups', {'sudo': ['ALL=(ALL:ALL) ALL']}) %}
   {%- else %}
     {%- set defaults = sudoers.get('defaults', {}) %}
     {%- set generic_defaults = defaults.get('generic', []) %}
@@ -22,6 +23,7 @@
     {%- set runas_list_defaults = defaults.get('runas_list', {}) %}
     {%- set users = sudoers.get('users', {}) %}
     {%- set groups = sudoers.get('groups', {}) %}
+    {%- set network_groups = sudoers.get('network_groups', {}) %}
   {%- endif %}
   {%- set includedir = sudoers.get('includedir', '/etc/sudoers.d') -%}
 {%- else %}
@@ -33,6 +35,7 @@
   {%- set runas_list_defaults = defaults.get('runas_list', {}) %}
   {%- set users = sudoers.get('users', {}) %}
   {%- set groups = sudoers.get('groups', {}) %}
+  {%- set network_groups = sudoers.get('network_groups', {}) %}
   {%- set includedir = sudoers.get('includedir', None) %}
 {%- endif %}
 {%- set aliases = sudoers.get('aliases', {}) %}
@@ -92,6 +95,13 @@ Runas_Alias {{ name }} = {{ ",".join(runas) }}
 {%- for group,specs in groups.items() %}
   {%- for spec in specs %}
 %{{ group }} {{ spec }}
+  {%- endfor %}
+{%- endfor %}
+
+# Network Group privilege specification
+{%- for group,specs in network_groups.items() %}
+  {%- for spec in specs %}
++{{ group }} {{ spec }}
   {%- endfor %}
 {%- endfor %}
 
