@@ -13,6 +13,7 @@ include:
     - mode: 440
     - template: jinja
     - source: salt://sudoers/files/sudoers
+    - check_cmd: /usr/sbin/visudo -c -f
     - context:
         included: True
         sudoers: {{ spec|json }}
