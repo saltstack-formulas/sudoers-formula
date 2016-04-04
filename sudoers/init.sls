@@ -4,6 +4,14 @@ sudo:
   pkg.installed:
     - name: {{ sudoers.pkg }}
 
+{{ sudoers.get('config-path', '/etc') }}/sudoers.d:
+  file.directory:
+    - user: root
+    - group: {{ sudoers.get('group', 'root') }}
+    - mode: 750
+    - require:
+      - pkg: sudo
+
 {{ sudoers.get('config-path', '/etc') }}/sudoers:
   file.managed:
     - user: root
