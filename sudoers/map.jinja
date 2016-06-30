@@ -11,5 +11,6 @@
     'Suse':    {'pkg': 'sudo'},
     'FreeBSD': {'pkg': 'sudo',
                 'config-path': '/usr/local/etc',
+                'exec-prefix': '/usr/local/sbin',
                 'group': 'wheel'},
 }, merge=salt['pillar.get']('sudoers:lookup')) %}
