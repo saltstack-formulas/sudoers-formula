@@ -11,6 +11,7 @@ sudo:
     - mode: 440
     - template: jinja
     - source: salt://sudoers/files/sudoers
+    - check_cmd: {{ sudoers.get('exec-prefix', '/usr/sbin') }}/visudo -c -f
     - context:
         included: False
     - require:
