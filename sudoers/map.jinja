@@ -12,4 +12,4 @@
     'FreeBSD': {'pkg': 'sudo',
                 'config-path': '/usr/local/etc',
                 'group': 'wheel'},
-}, merge=salt['pillar.get']('sudoers:lookup')) %}
+}, merge=salt['pillar.get']('sudoers:lookup', None)) %}
