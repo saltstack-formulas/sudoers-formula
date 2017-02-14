@@ -1,3 +1,4 @@
+{% from "sudoers/map.jinja" import group_maps with context %}
 {%- if (not included) %}
   {%- set sudoers = pillar.get('sudoers', {}) %}
   {%- if grains['os_family'] == 'Debian' %}
@@ -91,9 +92,14 @@ Runas_Alias {{ name }} = {{ ",".join(runas) }}
 # Group privilege specification
 {%- for group,specs in groups.items() %}
   {%- for spec in specs %}
-%{{ group }} {{ spec }}
+{{ group }} {{ spec }}
   {%- endfor %}
 {%- endfor %}
+{% for unix_group in in salt['pillar.get']('group_map:core', {}).keys() %}
+  {% if unix_group in group_map.keys() %}
+{{ unix_group }} {{ group_map.unix_group }}
+  {% else %}
+{{ unix_group }} (( group_map.default }}
 
 {% if includedir %}
 ## Read drop-in files from /etc/sudoers.d
