@@ -21,6 +21,5 @@
             'plosqa': 'ALL = (ALL:ALL) NOPASSWD: ALL' },
     },
     grain='environment',
-    merge=salt['pillar.get']('group_maps:lookup', None)),
-    default='default'
+    merge=salt['pillar.get']('group_maps:lookup', None))
 %}

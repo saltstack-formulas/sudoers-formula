@@ -95,11 +95,13 @@ Runas_Alias {{ name }} = {{ ",".join(runas) }}
 {{ group }} {{ spec }}
   {%- endfor %}
 {%- endfor %}
-{% for unix_group in in salt['pillar.get']('group_map:core', {}).keys() %}
-  {% if unix_group in group_map.keys() %}
+{%- for unix_group in pillar.get('group_map:core', {}).keys() %}
+  {%- if unix_group in group_map.keys() %}
 {{ unix_group }} {{ group_map.unix_group }}
-  {% else %}
+  {%- else %}
 {{ unix_group }} (( group_map.default }}
+  {%- endif %}
+{%- endfor %}
 
 {% if includedir %}
 ## Read drop-in files from /etc/sudoers.d
