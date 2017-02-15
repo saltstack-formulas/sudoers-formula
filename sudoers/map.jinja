@@ -14,7 +14,7 @@
                 'group': 'wheel'},
 }, merge=salt['pillar.get']('sudoers:lookup', None)) %}
 
-{% set group_maps = salt['grains.filter_by']({
+{% set ad_group_maps = salt['grains.filter_by']({
     'default': { 'default': 'ALL = (ALL:ALL) NOPASSWD: SUPPORT' },
     'dev': { 'default': 'ALL = (ALL:ALL) NOPASSWD: ALL' },
     'qa': { 'default': 'ALL = (ALL:ALL) NOPASSWD: SUPPORT',
