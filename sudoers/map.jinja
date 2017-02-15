@@ -16,9 +16,10 @@
 
 {% set ad_group_maps = salt['grains.filter_by']({
     'default': { 'default': 'ALL = (ALL:ALL) NOPASSWD: SUPPORT' },
-    'dev': { 'default': 'ALL = (ALL:ALL) NOPASSWD: ALL' },
-    'qa': { 'default': 'ALL = (ALL:ALL) NOPASSWD: SUPPORT',
-            'plosqa': 'ALL = (ALL:ALL) NOPASSWD: ALL' },
+    'vagrant': { 'default': 'ALL = (ALL:ALL) NOPASSWD: ALL' },
+    'dev':     { 'default': 'ALL = (ALL:ALL) NOPASSWD: ALL' },
+    'qa':      { 'default': 'ALL = (ALL:ALL) NOPASSWD: SUPPORT',
+                 'plosqa': 'ALL = (ALL:ALL) NOPASSWD: ALL' },
     },
     grain='environment',
     merge=salt['pillar.get']('group_maps:lookup', None))

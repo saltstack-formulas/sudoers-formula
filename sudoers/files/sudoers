@@ -95,11 +95,11 @@ Runas_Alias {{ name }} = {{ ",".join(runas) }}
 %{{ group }} {{ spec }}
   {%- endfor %}
 {%- endfor %}
-{%- for unix_group in ad_groups.keys() %}
+{%- for unix_group in ad_groups %}
   {%- if unix_group in ad_group_maps.keys() %}
-%{{ unix_group }} {{ ad_group_maps.unix_group }}
+%{{ unix_group }} {{ ad_group_maps[unix_group] }}
   {%- else %}
-%{{ unix_group }} {{ ad_group_maps.default }}
+%{{ unix_group }} {{ ad_group_maps['default'] }}
   {%- endif %}
 {%- endfor %}
 
