@@ -1,3 +1,4 @@
+{% from "sudoers/map.jinja" import ad_group_maps with context %}
 {%- if (not included) %}
   {%- set sudoers = pillar.get('sudoers', {}) %}
   {%- if grains['os_family'] == 'Debian' %}
@@ -93,6 +94,13 @@ Runas_Alias {{ name }} = {{ ",".join(runas) }}
   {%- for spec in specs %}
 %{{ group }} {{ spec }}
   {%- endfor %}
+{%- endfor %}
+{%- for unix_group in ad_groups %}
+  {%- if unix_group in ad_group_maps.keys() %}
+%{{ unix_group }} {{ ad_group_maps[unix_group] }}
+  {%- else %}
+%{{ unix_group }} {{ ad_group_maps['default'] }}
+  {%- endif %}
 {%- endfor %}
 
 {% if includedir %}

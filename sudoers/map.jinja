@@ -13,3 +13,15 @@
                 'config-path': '/usr/local/etc',
                 'group': 'wheel'},
 }, merge=salt['pillar.get']('sudoers:lookup', None)) %}
+
+# our plos active directory core groups sudoers permissions, filtered by environment
+{% set ad_group_maps = salt['grains.filter_by']({
+    'default': { 'default': 'ALL = (root) NOPASSWD: SUPPORT' },
+    'vagrant': { 'default': 'ALL = (ALL:ALL) NOPASSWD: ALL' },
+    'dev':     { 'default': 'ALL = (ALL:ALL) NOPASSWD: ALL' },
+    'qa':      { 'default': 'ALL = (root) NOPASSWD: SUPPORT',
+                 'plosqa': 'ALL = (root) NOPASSWD: ALL' },
+    },
+    grain='environment',
+    merge=salt['pillar.get']('group_maps:lookup', None))
+%}
