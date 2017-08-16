@@ -18,5 +18,5 @@ include:
         included: True
         sudoers: {{ spec|json }}
     - require:
-      - file: {{ sudoers.get('config-path', '/etc') }}/sudoers
+      - file: {{ sudoers.get('configpath', '/etc') }}/sudoers
 {% endfor %}

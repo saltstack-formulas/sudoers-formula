@@ -10,7 +10,7 @@
     'Arch':    {'pkg': 'sudo'},
     'Suse':    {'pkg': 'sudo'},
     'FreeBSD': {'pkg': 'sudo',
-                'config-path': '/usr/local/etc',
-                'exec-prefix': '/usr/local/sbin',
+                'configpath': '/usr/local/etc',
+                'execprefix': '/usr/local/sbin',
                 'group': 'wheel'},
 }, merge=salt['pillar.get']('sudoers:lookup')) %}
