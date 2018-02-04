@@ -45,6 +45,7 @@ sudoers:
       users:
         foo:
           - 'ALL=(ALL) ALL'
+    extra-file-2:
       groups:
         bargroup:
           - 'ALL=(ALL) NOPASSWD: ALL'
