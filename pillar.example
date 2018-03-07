@@ -7,6 +7,10 @@ sudoers:
     sudo:
       - 'ALL=(ALL) ALL'
       - 'ALL=(nodejs) NOPASSWD: ALL'
+  network_groups:
+    my-network-admin-group:
+      - 'ALL=(ALL) ALL'
+      - 'ALL=(nodejs) NOPASSWD: ALL'
   defaults:
     generic:
       - env_reset
