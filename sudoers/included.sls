@@ -4,10 +4,16 @@ include:
   - sudoers
 
 {% do sudoers.update(pillar.get('sudoers', {})) %}
+{% set includedir = sudoers.get('includedir', '/etc/sudoers.d') %}
 {% set included_files = sudoers.get('included_files', {}) %}
 {% for included_file,spec in included_files.items() -%}
-{{ included_file }}:
+sudoers include {{ included_file }}:
   file.managed:
+    {% if '/' in included_file %}
+    - name: {{ included_file }}
+    {% else %}
+    - name: {{ includedir }}/{{ included_file }}
+    {% endif %}
     - user: root
     - group: {{ sudoers.get('group', 'root') }}
     - mode: 440
