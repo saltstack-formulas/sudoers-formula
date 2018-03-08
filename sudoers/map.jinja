@@ -16,10 +16,10 @@
 
 # our plos active directory core groups sudoers permissions, filtered by environment
 {% set ad_group_maps = salt['grains.filter_by']({
-    'default': { 'default': 'ALL = (root) NOPASSWD: SUPPORT' },
+    'default': { 'default': 'ALL = (root) NOEXEC:NOPASSWD: SUPPORT' },
     'vagrant': { 'default': 'ALL = (ALL:ALL) NOPASSWD: ALL' },
     'dev':     { 'default': 'ALL = (ALL:ALL) NOPASSWD: ALL' },
-    'qa':      { 'default': 'ALL = (root) NOPASSWD: SUPPORT',
+    'qa':      { 'default': 'ALL = (root) NOEXEC:NOPASSWD: SUPPORT',
                  'plosqa': 'ALL = (root) NOPASSWD: ALL' },
     },
     grain='environment',
