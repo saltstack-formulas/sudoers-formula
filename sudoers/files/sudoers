@@ -48,48 +48,48 @@
 {% for default in generic_defaults -%}
 Defaults {{ default }}
 {% endfor %}
-{%- for user,spec in user_list_defaults.items() %}
+{%- for user,spec in user_list_defaults|dictsort %}
 Defaults:{{ user }} {{ spec }}
 {%- endfor %}
-{%- for host,spec in host_list_defaults.items() %}
+{%- for host,spec in host_list_defaults|dictsort %}
 Defaults@{{ host }} {{ spec }}
 {%- endfor %}
-{%- for command,spec in command_list_defaults.items() %}
+{%- for command,spec in command_list_defaults|dictsort %}
 Defaults!{{ command }} {{ spec }}
 {%- endfor %}
-{%- for runas,spec in runas_list_defaults.items() %}
+{%- for runas,spec in runas_list_defaults|dictsort %}
 Defaults>{{ runas }} {{ spec }}
 {%- endfor %}
 
 # Host alias specification
-{%- for name,hosts in host_aliases.items() %}
+{%- for name,hosts in host_aliases|dictsort %}
 Host_Alias {{ name }} = {{ ",".join(hosts) }}
 {%- endfor %}
 
 # User alias specification
-{%- for name,users in user_aliases.items() %}
+{%- for name,users in user_aliases|dictsort %}
 User_Alias {{ name }} = {{ ",".join(users) }}
 {%- endfor %}
 
 # Cmnd alias specification
-{%- for name,commands in command_aliases.items() %}
+{%- for name,commands in command_aliases|dictsort %}
 Cmnd_Alias {{ name }} = {{ ",".join(commands) }}
 {%- endfor %}
 
 # Runas alias specification
-{%- for name,runas in runas_aliases.items() %}
+{%- for name,runas in runas_aliases|dictsort %}
 Runas_Alias {{ name }} = {{ ",".join(runas) }}
 {%- endfor %}
 
 # User privilege specification
-{%- for user,specs in users.items() %}
+{%- for user,specs in users|dictsort %}
   {%- for spec in specs %}
 {{ user }} {{ spec }}
   {%- endfor %}
 {%- endfor %}
 
 # Group privilege specification
-{%- for group,specs in groups.items() %}
+{%- for group,specs in groups|dictsort %}
   {%- for spec in specs %}
 %{{ group }} {{ spec }}
   {%- endfor %}
