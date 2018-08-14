@@ -50,7 +50,9 @@ sudoers:
           - 'ALL=(ALL) ALL'
     extra-file-2:
       groups:
-        bargroup:
+        %bargroup:
+          - 'ALL=(ALL) NOPASSWD: ALL'
+        +mynetgroup:
           - 'ALL=(ALL) NOPASSWD: ALL'
     extra-file-3:
       netgroups:
