@@ -7,6 +7,9 @@ sudoers:
     sudo:
       - 'ALL=(ALL) ALL'
       - 'ALL=(nodejs) NOPASSWD: ALL'
+  netgroups:
+    sysadmins:
+      - 'ALL=(ALL) ALL'
   defaults:
     generic:
       - env_reset
@@ -49,3 +52,7 @@ sudoers:
       groups:
         bargroup:
           - 'ALL=(ALL) NOPASSWD: ALL'
+    extra-file-3:
+      netgroups:
+        other_netgroup:
+          - 'ALL=(ALL) ALL'
