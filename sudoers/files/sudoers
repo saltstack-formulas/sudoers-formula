@@ -94,7 +94,7 @@ Runas_Alias {{ name }} = {{ ",".join(runas) }}
 # Group privilege specification
 {%- for group,specs in groups.items() %}
   {%- for spec in specs %}
-%{{ group }} {{ spec }}
+{{ group }} {{ spec }}
   {%- endfor %}
 {%- endfor %}
 
