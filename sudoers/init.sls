@@ -4,6 +4,8 @@ sudo:
   pkg.installed:
     - name: {{ sudoers.pkg }}
 
+{% if salt['pillar.get']('sudoers:manage_main_config', True) %}
+
 {{ sudoers.get('configpath', '/etc') }}/sudoers:
   file.managed:
     - user: root
@@ -16,3 +18,12 @@ sudo:
         included: False
     - require:
       - pkg: sudo
+
+{% else %}
+
+{{ sudoers.get('configpath', '/etc') }}/sudoers:
+  test.show_notification:
+    - name: Skipping management of main sudoers file
+    - text: Pillar manage_main_config is False
+
+{% endif %}

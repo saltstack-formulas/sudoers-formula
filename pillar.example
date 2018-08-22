@@ -1,4 +1,6 @@
 sudoers:
+  # By default the main sudoers file is managed by this formula (False to skip)
+  manage_main_config: True
   users:
     johndoe:
       - 'ALL=(ALL) ALL'
