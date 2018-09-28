@@ -21,6 +21,8 @@
     'dev':     { 'default': 'ALL = (ALL:ALL) NOPASSWD: ALL' },
     'qa':      { 'default': 'ALL = (root) NOEXEC:NOPASSWD: SUPPORT',
                  'plosqa': 'ALL = (root) NOPASSWD: ALL' },
+    'stage':   { 'default': 'ALL = (root) NOEXEC:NOPASSWD: SUPPORT',
+                 'plosqa': 'ALL = (root) NOPASSWD: ALL' },
     },
     grain='environment',
     merge=salt['pillar.get']('group_maps:lookup', None))
