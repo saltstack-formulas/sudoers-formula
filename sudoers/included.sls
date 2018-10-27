@@ -23,6 +23,8 @@ sudoers include {{ included_file }}:
     - context:
         included: True
         sudoers: {{ spec|json }}
+    {% if salt['pillar.get']('sudoers:manage_main_config', True) %}
     - require:
       - file: {{ sudoers.get('configpath', '/etc') }}/sudoers
+    {% endif %}
 {% endfor %}
