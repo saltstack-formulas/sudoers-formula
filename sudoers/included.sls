@@ -17,6 +17,7 @@ sudoers include {{ included_file }}:
     - user: root
     - group: {{ sudoers.get('group', 'root') }}
     - mode: 440
+    - makedirs: True
     - template: jinja
     - source: salt://sudoers/files/sudoers
     - check_cmd: {{ sudoers.get('execprefix', '/usr/sbin') }}/visudo -c -f
