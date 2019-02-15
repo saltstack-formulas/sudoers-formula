@@ -19,10 +19,16 @@
     'default': { 'default': 'ALL = (root) NOEXEC:NOPASSWD: SUPPORT' },
     'vagrant': { 'default': 'ALL = (ALL:ALL) NOPASSWD: ALL' },
     'dev':     { 'default': 'ALL = (ALL:ALL) NOPASSWD: ALL' },
-    'qa':      { 'default': 'ALL = (root) NOEXEC:NOPASSWD: SUPPORT',
-                 'plosqa': 'ALL = (root) NOPASSWD: ALL' },
-    'stage':   { 'default': 'ALL = (root) NOEXEC:NOPASSWD: SUPPORT',
-                 'plosqa': 'ALL = (root) NOPASSWD: ALL' },
+    'qa':      {
+                    'default': 'ALL = (root) NOEXEC:NOPASSWD: SUPPORT',
+                    'plosdev': 'ALL = (ALL:ALL) NOPASSWD: ALL',
+                    'plosqa': 'ALL = (ALL:ALL) NOPASSWD: ALL',
+               },
+    'stage':   {
+                    'default': 'ALL = (root) NOEXEC:NOPASSWD: SUPPORT',
+                    'plosdev': 'ALL = (ALL:ALL) NOPASSWD: ALL',
+                    'plosqa': 'ALL = (ALL:ALL) NOPASSWD: ALL'
+               }
     },
     grain='environment',
     merge=salt['pillar.get']('group_maps:lookup', None))
