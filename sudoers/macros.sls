@@ -12,7 +12,7 @@
     - context:
       for_user: {{ for_user }}
       sudo: {{ sudo }}
-      config: {{ config }}
+      config: {{ config|tojson }}
 
 {% elif state == 'absent' %}
 /etc/sudoers.d/{{ filename }}:
