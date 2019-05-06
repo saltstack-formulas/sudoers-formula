@@ -16,6 +16,6 @@ sudo:
     - source: salt://sudoers/files/sudoers
     - context:
         included: False
-        ad_groups: {{ ad_groups }}
+        ad_groups: {{ ad_groups|tojson }}
     - require:
       - pkg: sudo
