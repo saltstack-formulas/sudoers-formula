@@ -5,5 +5,5 @@ version: 1.0.0rc
 release: 1
 minimum_version: 2016.11
 summary: Sudoers formula
-description: Formula to configure sudo
+description: Formula to configure sudo and the sudoers included files
 top_level_dir: sudoers

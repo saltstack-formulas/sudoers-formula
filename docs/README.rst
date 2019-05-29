@@ -14,8 +14,7 @@ sudoers-formula
    :scale: 100%
    :target: https://github.com/semantic-release/semantic-release
 
-A SaltStack formula that is empty. It has dummy content to help with a quick
-start on a new formula and it serves as a style guide.
+Set up ``sudo`` and the ``sudoers`` included files.
 
 .. contents:: **Table of Contents**
 
@@ -80,7 +79,7 @@ e.g. ``debian-9-2019-2-py3``.
 ``bin/kitchen converge``
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Creates the docker instance and runs the ``template`` main state, ready for testing.
+Creates the docker instance and runs the ``sudoers`` main state, ready for testing.
 
 ``bin/kitchen verify``
 ^^^^^^^^^^^^^^^^^^^^^^
