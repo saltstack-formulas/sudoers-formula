@@ -86,6 +86,7 @@ provisioner:
     base:
       '*':
         - sudoers
+        - sudoers.included
   pillars:
     top.sls:
       base:
