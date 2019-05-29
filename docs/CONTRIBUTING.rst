@@ -156,31 +156,3 @@ An example of that:
    BREAKING CHANGE: With the removal of all of the `.sls` files under
    `template package`, this formula no longer supports the installation of
    packages.
-
-
-Semantic release formulas
--------------------------
-
-These formulas are already compatible with semantic-release:
-
-* `bind-formula <https://github.com/saltstack-formulas/bind-formula>`_
-* `cert-formula <https://github.com/saltstack-formulas/cert-formula>`_
-* `chrony-formula <https://github.com/saltstack-formulas/chrony-formula>`_
-* `collectd-formula <https://github.com/saltstack-formulas/collectd-formula>`_
-* `fail2ban-formula <https://github.com/saltstack-formulas/fail2ban-formula>`_
-* `keepalived-formula <https://github.com/saltstack-formulas/keepalived-formula>`_
-* `nginx-formula <https://github.com/saltstack-formulas/nginx-formula>`_
-* `postgres-formula <https://github.com/saltstack-formulas/postgres-formula>`_
-* `prometheus-formula <https://github.com/saltstack-formulas/prometheus-formula>`_
-* `rkhunter-formula <https://github.com/saltstack-formulas/rkhunter-formula>`_
-* `salt-formula <https://github.com/saltstack-formulas/salt-formula>`_
-* `syslog-ng-formula <https://github.com/saltstack-formulas/syslog-ng-formula>`_
-* `systemd-formula <https://github.com/saltstack-formulas/systemd-formula>`_
-* `ufw-formula <https://github.com/saltstack-formulas/ufw-formula>`_
-* `vault-formula <https://github.com/saltstack-formulas/vault-formula>`_
-
-
-Documentation
--------------
-
-`Documentation contributing guidelines <CONTRIBUTING_DOCS.rst>`_
