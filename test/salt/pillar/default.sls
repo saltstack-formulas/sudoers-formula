@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
 sudoers:
   # By default the main sudoers file is managed by this formula (False to skip)
-  manage_main_config: True
+  manage_main_config: true
   users:
     johndoe:
       - 'ALL=(ALL) ALL'
