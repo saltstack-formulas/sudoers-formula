@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 control 'Sudoers configuration' do
   title 'should match desired lines'
 
@@ -17,7 +19,6 @@ control 'Sudoers configuration' do
     its('content') { should include '%sudo ALL=(nodejs) NOPASSWD: ALL' }
     its('content') { should include '+sysadmins ALL=(ALL) ALL' }
     its('content') { should include '#includedir /etc/sudoers.d' }
-
   end
 
   describe file('/etc/sudoers.d/extra-file') do
@@ -43,5 +44,4 @@ control 'Sudoers configuration' do
     its('mode') { should cmp '0440' }
     its('content') { should include '+other_netgroup ALL=(ALL) ALL' }
   end
-
 end
