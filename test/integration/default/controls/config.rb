@@ -10,7 +10,9 @@ control 'Sudoers configuration' do
     its('mode') { should cmp '0440' }
     its('content') { should include 'Defaults:ADMINS !lecture' }
     its('content') { should include 'Defaults:johndoe !requiretty' }
-    its('content') { should include 'Defaults@www1 log_year, logfile=/var/log/sudo.log' }
+    its('content') do
+      should include 'Defaults@www1 log_year, logfile=/var/log/sudo.log'
+    end
     its('content') { should include 'Host_Alias WEBSERVERS = www1,www2,www3' }
     its('content') { should include 'User_Alias ADMINS = millert,dowdy,mikef' }
     its('content') { should include 'johndoe ALL=(ALL) ALL' }
