@@ -4,6 +4,7 @@
 sudoers:
   pkg: sudo
   manage_main_config: true
+  purge_includedir: false
   configpath: /etc
   group: root
   execprefix: /usr/sbin
