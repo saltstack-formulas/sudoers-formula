@@ -1,0 +1,5 @@
+# yamllint disable rule:indentation rule:line-length
+# Arch
+---
+sudoers:
+  pkg: sudo

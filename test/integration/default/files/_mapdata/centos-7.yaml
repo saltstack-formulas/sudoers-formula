@@ -1,0 +1,5 @@
+# yamllint disable rule:indentation rule:line-length
+# CentOS Linux-7
+---
+sudoers:
+  pkg: sudo

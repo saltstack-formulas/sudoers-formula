@@ -153,6 +153,7 @@ suites:
       state_top:
         base:
           '*':
+            - sudoers._mapdata
             - sudoers
             - sudoers.included
       pillars:

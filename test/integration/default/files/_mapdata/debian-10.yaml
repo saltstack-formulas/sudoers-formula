@@ -1,0 +1,5 @@
+# yamllint disable rule:indentation rule:line-length
+# Debian-10
+---
+sudoers:
+  pkg: sudo

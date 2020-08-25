@@ -1,0 +1,5 @@
+# yamllint disable rule:indentation rule:line-length
+# Amazon Linux AMI-2018
+---
+sudoers:
+  pkg: sudo
