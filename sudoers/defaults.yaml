@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+sudoers:
+  pkg: sudo
+  manage_main_config: true
+  configpath: /etc
+  group: root
+  execprefix: /usr/sbin
+  includedir: /etc/sudoers.d
+  included_files: {}
