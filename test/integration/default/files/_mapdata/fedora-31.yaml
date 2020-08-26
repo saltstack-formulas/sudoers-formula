@@ -1,0 +1,5 @@
+# yamllint disable rule:indentation rule:line-length
+# Fedora-31
+---
+sudoers:
+  pkg: sudo

@@ -1,0 +1,5 @@
+# yamllint disable rule:indentation rule:line-length
+# Ubuntu-16.04
+---
+sudoers:
+  pkg: sudo
