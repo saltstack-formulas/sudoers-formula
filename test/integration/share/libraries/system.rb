@@ -4,46 +4,17 @@
 # Author: Daniel Dehennin <daniel.dehennin@ac-dijon.fr>
 # Copyright (C) 2020 Daniel Dehennin <daniel.dehennin@ac-dijon.fr>
 
-HOSTNAME_CMDS = %w[hostname hostnamectl].freeze
-HOSTNAME_CMDS_OPT = {
-  'hostname' => '-s',
-  'hostnamectl' => '--static'
-}.freeze
-
 class SystemResource < Inspec.resource(1)
   name 'system'
 
   attr_reader :platform
-  attr_reader :hostname
 
   def initialize
+    super
     @platform = build_platform
-    @hostname = found_hostname
   end
 
   private
-
-  def found_hostname
-    cmd = guess_hostname_cmd
-
-    unless cmd.exit_status.zero?
-      raise Inspec::Exceptions::ResourceSkipped,
-            "Error running '#{cmd}': #{cmd.stderr}"
-    end
-
-    cmd.stdout.chomp
-  end
-
-  def guess_hostname_cmd
-    HOSTNAME_CMDS.each do |cmd|
-      if inspec.command(cmd).exist?
-        return inspec.command("#{cmd} #{HOSTNAME_CMDS_OPT[cmd]}")
-      end
-    end
-
-    raise Inspec::Exceptions::ResourceSkipped,
-          "Error: #{@platform[:finger]}} has none of #{HOSTNAME_CMDS.join(', ')}"
-  end
 
   def build_platform
     {
@@ -79,8 +50,19 @@ class SystemResource < Inspec.resource(1)
       inspec.platform[:release].gsub(/2018.*/, '1')
     when 'arch'
       'base-latest'
+    when 'gentoo'
+      "#{inspec.platform[:release].split('.')[0]}-#{derive_gentoo_init_system}"
     else
       inspec.platform[:release]
+    end
+  end
+
+  def derive_gentoo_init_system
+    case inspec.command('systemctl').exist?
+    when true
+      'sysd'
+    else
+      'sysv'
     end
   end
 
