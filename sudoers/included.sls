@@ -9,6 +9,13 @@
 include:
   - sudoers
 
+{{ sudoers.includedir }}:
+  file.directory:
+    - user: root
+    - group: {{ sudoers.group }}
+    - mode: 440
+    - clean: {{ sudoers.purge_includedir }}
+
 {% set included_files = sudoers.included_files %}
 {% for included_file, spec in included_files.items() -%}
 sudoers include {{ included_file }}:

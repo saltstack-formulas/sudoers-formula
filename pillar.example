@@ -4,6 +4,8 @@
 sudoers:
   # By default the main sudoers file is managed by this formula (False to skip)
   manage_main_config: true
+  # By default the included directory is not purged from unwanted files
+  purge_includedir: false
   users:
     johndoe:
       - 'ALL=(ALL) ALL'

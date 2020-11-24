@@ -61,6 +61,7 @@ sudoers:
     sysadmins:
     - ALL=(ALL) ALL
   pkg: sudo
+  purge_includedir: false
   users:
     johndoe:
     - ALL=(ALL) ALL
