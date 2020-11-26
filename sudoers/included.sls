@@ -13,7 +13,7 @@ include:
   file.directory:
     - user: root
     - group: {{ sudoers.group }}
-    - mode: 440
+    - mode: 750
     - clean: {{ sudoers.purge_includedir }}
 
 {% set included_files = sudoers.included_files %}
