@@ -1,5 +1,41 @@
 # Changelog
 
+# [0.23.0](https://github.com/saltstack-formulas/sudoers-formula/compare/v0.22.2...v0.23.0) (2020-12-16)
+
+
+### Bug Fixes
+
+* permissions on sudoers include dir were wrong ([c6a3a60](https://github.com/saltstack-formulas/sudoers-formula/commit/c6a3a6040f3994a45f2a5de7625e958da412603d))
+
+
+### Code Refactoring
+
+* change pillar calls ([d5002c3](https://github.com/saltstack-formulas/sudoers-formula/commit/d5002c3c250372acdb6295bd23e51053803f99ce))
+* convert map.jinja to new standards ([ee173b0](https://github.com/saltstack-formulas/sudoers-formula/commit/ee173b0041d232bef04a2feafdb51b6f3af007d1))
+
+
+### Continuous Integration
+
+* **gitlab-ci:** use GitLab CI as Travis CI replacement ([cdf0d44](https://github.com/saltstack-formulas/sudoers-formula/commit/cdf0d44053985566bb9d06ee4925a2de70c022f1))
+* **pre-commit:** add to formula [skip ci] ([cfcece9](https://github.com/saltstack-formulas/sudoers-formula/commit/cfcece9e1fc4e04c437b9130e0cbba2212e4d332))
+* **pre-commit:** enable/disable `rstcheck` as relevant [skip ci] ([df72fba](https://github.com/saltstack-formulas/sudoers-formula/commit/df72fbadf85471b3620969c4b7ed935e25c32193))
+* **pre-commit:** finalise `rstcheck` configuration [skip ci] ([0202050](https://github.com/saltstack-formulas/sudoers-formula/commit/02020503ea3199c83ceee54a142733438c17ce51))
+
+
+### Features
+
+* implement option to purge included files directory ([c5acbc6](https://github.com/saltstack-formulas/sudoers-formula/commit/c5acbc696ae230e673f64f57b815a08963e44a90))
+
+
+### Styles
+
+* fix rubocop ([d67a062](https://github.com/saltstack-formulas/sudoers-formula/commit/d67a06254a2966aae9c624bb05e122245cbbbe1f))
+
+
+### Tests
+
+* fix mapdata files ([7400528](https://github.com/saltstack-formulas/sudoers-formula/commit/7400528fd26c8b1b18fd3e910162b5060be955b0))
+
 ## [0.22.2](https://github.com/saltstack-formulas/sudoers-formula/compare/v0.22.1...v0.22.2) (2020-08-26)
 
 
