@@ -3,14 +3,12 @@
 ---
 {#- Get the `tplroot` from `tpldir` #}
 {%- set tplroot = tpldir.split('/')[0] %}
-{%- from tplroot ~ "/map.jinja" import sudoers with context %}
+{%- from tplroot ~ "/map.jinja" import sudoers as mapdata with context %}
 
-{%- set map = {
-      'sudoers': sudoers,
-    } %}
-{%- do salt['log.debug']('### MAP.JINJA DUMP ###\n' ~ map | yaml(False)) %}
+{%- do salt['log.debug']('### MAP.JINJA DUMP ###\n' ~ mapdata | yaml(False)) %}
 
-{%- set output_file = '/tmp/salt_mapdata_dump.yaml' %}
+{%- set output_dir = '/temp' if grains.os_family == 'Windows' else '/tmp' %}
+{%- set output_file = output_dir ~ '/salt_mapdata_dump.yaml' %}
 
 {{ tplroot }}-mapdata-dump:
   file.managed:
@@ -18,4 +16,4 @@
     - source: salt://{{ tplroot }}/_mapdata/_mapdata.jinja
     - template: jinja
     - context:
-        map: {{ map | yaml }}
+        map: {{ mapdata | yaml }}
