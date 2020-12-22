@@ -2,6 +2,23 @@
 Changelog
 =========
 
+`0.23.1 <https://github.com/saltstack-formulas/sudoers-formula/compare/v0.23.0...v0.23.1>`_ (2020-12-22)
+------------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **commitlint:** ensure ``upstream/master`` uses main repo URL [skip ci] (\ `c2182ef <https://github.com/saltstack-formulas/sudoers-formula/commit/c2182efdfac6a15dd8c9a9465cc35905b7a0421b>`_\ )
+* **gitlab-ci:** add ``rubocop`` linter (with ``allow_failure``\ ) [skip ci] (\ `3f34c0a <https://github.com/saltstack-formulas/sudoers-formula/commit/3f34c0a6b05dccebc44e71f6541574767fe1021b>`_\ )
+
+Tests
+^^^^^
+
+
+* **_mapdata:** fix existing verification files (\ `b7aa04d <https://github.com/saltstack-formulas/sudoers-formula/commit/b7aa04db2828284013ea5ba85f388c67e11599ee>`_\ )
+* **map:** standardise ``map.jinja`` verification (\ `ac8921f <https://github.com/saltstack-formulas/sudoers-formula/commit/ac8921f11a75e0e3be558bb148e4348e21c26ed6>`_\ )
+
 `0.23.0 <https://github.com/saltstack-formulas/sudoers-formula/compare/v0.22.2...v0.23.0>`_ (2020-12-16)
 ------------------------------------------------------------------------------------------------------------
 
