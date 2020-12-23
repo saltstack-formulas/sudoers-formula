@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.23.2](https://github.com/saltstack-formulas/sudoers-formula/compare/v0.23.1...v0.23.2) (2020-12-23)
+
+
+### Code Refactoring
+
+* **map:** use top-level `values:` key in `map.jinja` dumps ([a643385](https://github.com/saltstack-formulas/sudoers-formula/commit/a643385dafbe5c4e06fc452b6bc69114a3aeff63))
+
 ## [0.23.1](https://github.com/saltstack-formulas/sudoers-formula/compare/v0.23.0...v0.23.1) (2020-12-22)
 
 
