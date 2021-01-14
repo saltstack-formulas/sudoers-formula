@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`0.23.3 <https://github.com/saltstack-formulas/sudoers-formula/compare/v0.23.2...v0.23.3>`_ (2021-01-14)
+------------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **_mapdata:** ensure map data is directly under ``values`` (\ `e2c2a8f <https://github.com/saltstack-formulas/sudoers-formula/commit/e2c2a8f1a2d19f789034e2e1ecf36f48858ec0c4>`_\ )
+
+Tests
+^^^^^
+
+
+* **_mapdata:** update for ``_mapdata/init.sls`` change (\ `a018875 <https://github.com/saltstack-formulas/sudoers-formula/commit/a018875c037275b454594a2403f5a43be1982b81>`_\ )
+
 `0.23.2 <https://github.com/saltstack-formulas/sudoers-formula/compare/v0.23.1...v0.23.2>`_ (2020-12-23)
 ------------------------------------------------------------------------------------------------------------
 
