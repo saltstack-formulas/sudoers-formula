@@ -38,5 +38,7 @@ sudoers include {{ included_file }}:
     {% if sudoers.manage_main_config %}
     - require:
       - file: {{ sudoers.configpath }}/sudoers
+    - require_in:
+      - file: {{ sudoers.includedir }}
     {% endif %}
 {% endfor %}
