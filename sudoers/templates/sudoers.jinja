@@ -1,0 +1,7 @@
+{%- if config.command is iterable and config.command is not string -%}
+{% for command in config.command -%}
+{{ for_user }} {{ config.privileges }}: {{ command }}
+{% endfor %}
+{%- else -%}
+{{ for_user }} {{ config.privileges }}: {{ config.command }}
+{%- endif -%}
