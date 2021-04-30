@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.23.4](https://github.com/saltstack-formulas/sudoers-formula/compare/v0.23.3...v0.23.4) (2021-04-30)
+
+
+### Bug Fixes
+
+* **sudoers/included:** fix idempotence with purge_includedir=True ([a64bf89](https://github.com/saltstack-formulas/sudoers-formula/commit/a64bf8977744d9c8e063a937e8b6e40cc2a1058e))
+
+
+### Continuous Integration
+
+* **gemfile+lock:** use `ssf` customised `kitchen-docker` repo [skip ci] ([73379d6](https://github.com/saltstack-formulas/sudoers-formula/commit/73379d6b23dc9df4b999ef29ad4019826cc56230))
+* **kitchen+ci:** use latest pre-salted images (after CVE) [skip ci] ([32e3825](https://github.com/saltstack-formulas/sudoers-formula/commit/32e3825e63b2a289d4c2d8e9b09e6e6f989ee320))
+* **kitchen+gitlab:** adjust matrix to add `3003` [skip ci] ([285cdaa](https://github.com/saltstack-formulas/sudoers-formula/commit/285cdaa7786af36236d20b7630fbfba7b4afae75))
+* **kitchen+gitlab-ci:** use latest pre-salted images [skip ci] ([cfb67f9](https://github.com/saltstack-formulas/sudoers-formula/commit/cfb67f9545c20d09bb54b0950fbc8a9e9b8d42da))
+* **pre-commit:** update hook for `rubocop` [skip ci] ([7c1b16f](https://github.com/saltstack-formulas/sudoers-formula/commit/7c1b16f9636217d2fc0cc76dad89631393858ad5))
+
+
+### Tests
+
+* **_mapdata:** add verification file for `fedora-34` [skip ci] ([d90f31b](https://github.com/saltstack-formulas/sudoers-formula/commit/d90f31bbfaf6326ea99245cef7c9f5212b7ad236))
+* standardise use of `share` suite & `_mapdata` state [skip ci] ([e58973f](https://github.com/saltstack-formulas/sudoers-formula/commit/e58973f6a7d991bc93800aa54d5ffae0e3792b33))
+* **_mapdata:** add verification files for new platforms ([96a5724](https://github.com/saltstack-formulas/sudoers-formula/commit/96a5724ffc888f72f10ee3fddc7aeb74c0b503ec))
+* **share:** standardise with latest changes [skip ci] ([67f85fa](https://github.com/saltstack-formulas/sudoers-formula/commit/67f85fa218a9de488534ad0f51719c16590b4b4f))
+
 ## [0.23.3](https://github.com/saltstack-formulas/sudoers-formula/compare/v0.23.2...v0.23.3) (2021-01-14)
 
 
