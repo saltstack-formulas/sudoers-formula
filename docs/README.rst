@@ -1,5 +1,3 @@
-.. _readme:
-
 sudoers-formula
 ===============
 
@@ -51,7 +49,7 @@ Available states
 Set up the sudoers file
 
 ``sudoers.included``
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 Set up an additional sudoers included file
 
