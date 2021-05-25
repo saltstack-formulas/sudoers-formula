@@ -84,24 +84,24 @@ Cmnd_Alias {{ name }} = {{ ",".join(commands) }}
 Runas_Alias {{ name }} = {{ ",".join(runas) }}
 {%- endfor %}
 
-# User privilege specification
-{%- for user,specs in users|dictsort %}
+# Netgroup privilege specification
+{%- for netgroup,specs in netgroups.items() %}
   {%- for spec in specs %}
-{{ user }} {{ spec }}
++{{ netgroup }} {{ spec }}
   {%- endfor %}
 {%- endfor %}
 
 # Group privilege specification
-{%- for group,specs in groups|dictsort %}
+{%- for group,specs in groups.items() %}
   {%- for spec in specs %}
 %{{ group }} {{ spec }}
   {%- endfor %}
 {%- endfor %}
 
-# Netgroup privilege specification
-{%- for netgroup,specs in netgroups.items() %}
+# User privilege specification
+{%- for user,specs in users.items() %}
   {%- for spec in specs %}
-+{{ netgroup }} {{ spec }}
+{{ user }} {{ spec }}
   {%- endfor %}
 {%- endfor %}
 
