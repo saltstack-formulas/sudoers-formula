@@ -40,5 +40,9 @@ sudoers include {{ included_file }}:
       - file: {{ sudoers.configpath }}/sudoers
     - require_in:
       - file: {{ sudoers.includedir }}
+    {% elif sudoers.append_included_files_to_endof_main_config %}
+  file.append:
+    - name: {{ sudoers.configpath }}/sudoers
+    - text: '#include {{ sudoers.configpath }}/sudoers.d/{{ included_file }}'
     {% endif %}
 {% endfor %}
