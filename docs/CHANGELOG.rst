@@ -2,6 +2,39 @@
 Changelog
 =========
 
+`0.24.0 <https://github.com/saltstack-formulas/sudoers-formula/compare/v0.23.4...v0.24.0>`_ (2021-08-18)
+------------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **gemfile+lock:** use ``ssf`` customised ``inspec`` repo [skip ci] (\ `4b05f27 <https://github.com/saltstack-formulas/sudoers-formula/commit/4b05f272ef18c0e02728ba55d02bf43186d537c9>`_\ )
+* add ``arch-master`` to matrix and update ``.travis.yml`` [skip ci] (\ `e8e046f <https://github.com/saltstack-formulas/sudoers-formula/commit/e8e046fc456be805e6beeac02252f993bf1c1633>`_\ )
+* add Debian 11 Bullseye & update ``yamllint`` configuration [skip ci] (\ `5dd9f21 <https://github.com/saltstack-formulas/sudoers-formula/commit/5dd9f2117abbed6f2089967b1212accdda9b69d2>`_\ )
+* **3003.1:** update inc. AlmaLinux, Rocky & ``rst-lint`` [skip ci] (\ `9d3efc2 <https://github.com/saltstack-formulas/sudoers-formula/commit/9d3efc20ebdd142d7a48b325282f4095a8a6ed7c>`_\ )
+* **kitchen:** move ``provisioner`` block & update ``run_command`` [skip ci] (\ `05bfba0 <https://github.com/saltstack-formulas/sudoers-formula/commit/05bfba04958f0e00b5ad9e6dc796bed77febf238>`_\ )
+* **kitchen+gitlab:** remove Ubuntu 16.04 & Fedora 32 (EOL) [skip ci] (\ `29df517 <https://github.com/saltstack-formulas/sudoers-formula/commit/29df51794e121a9e61dbfee3556350c9c786b884>`_\ )
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **readme:** fix heading [skip ci] (\ `f38e79a <https://github.com/saltstack-formulas/sudoers-formula/commit/f38e79a7979cc3105dcada1f2fb2774035471f18>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **macro:** to use in several state (\ `70e66c9 <https://github.com/saltstack-formulas/sudoers-formula/commit/70e66c97be41f09b0be4b35fd4a86a09ea7df11d>`_\ )
+
+Tests
+^^^^^
+
+
+* **_mapdata:** add verification file for ``debian-11`` [skip ci] (\ `72fa4c2 <https://github.com/saltstack-formulas/sudoers-formula/commit/72fa4c2dbce7167e814da61564f833813bff7825>`_\ )
+* **alma+rocky:** add platforms (based on CentOS 8) [skip ci] (\ `5109ee0 <https://github.com/saltstack-formulas/sudoers-formula/commit/5109ee0c5c6b76f25c0f546208e7cec2ac8c569a>`_\ )
+
 `0.23.4 <https://github.com/saltstack-formulas/sudoers-formula/compare/v0.23.3...v0.23.4>`_ (2021-04-30)
 ------------------------------------------------------------------------------------------------------------
 
