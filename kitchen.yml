@@ -463,3 +463,23 @@ suites:
     verifier:
       inspec_tests:
         - path: test/integration/default
+  - name: appended
+    provisioner:
+      state_top:
+        base:
+          '*':
+            - sudoers._mapdata
+            - sudoers
+            - sudoers.included
+      pillars:
+        top.sls:
+          base:
+            '*':
+              - kitchen
+              - sudoers
+      pillars_from_files:
+        kitchen.sls: test/salt/pillar/kitchen.sls
+        sudoers.sls: test/salt/pillar/appended.sls
+    verifier:
+      inspec_tests:
+        - path: test/integration/appended

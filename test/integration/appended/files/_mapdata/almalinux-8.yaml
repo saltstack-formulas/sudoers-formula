@@ -1,0 +1,29 @@
+# yamllint disable rule:indentation rule:line-length
+# AlmaLinux-8
+---
+values:
+  append_included_files_to_endof_main_config: true
+  arch: amd64
+  configpath: /etc
+  execprefix: /usr/sbin
+  group: root
+  included_files:
+    /etc/sudoers.d/extra-file1:
+      users:
+        foo:
+        - ALL=(ALL) ALL
+    /etc/sudoers.d/extra-file2:
+      groups:
+        bargroup:
+        - 'ALL=(ALL) NOPASSWD: ALL'
+    /etc/sudoers.d/extra-file3:
+      netgroups:
+        other_netgroup:
+        - ALL=(ALL) ALL
+  includedir: /etc/sudoers.d
+  manage_main_config: false
+  pkg: sudo
+  purge_includedir: false
+  users:
+    kitchen:
+    - 'ALL=(root) NOPASSWD: ALL'

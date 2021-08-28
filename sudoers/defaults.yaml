@@ -10,3 +10,4 @@ sudoers:
   execprefix: /usr/sbin
   includedir: /etc/sudoers.d
   included_files: {}
+  append_included_files_to_endof_main_config: false

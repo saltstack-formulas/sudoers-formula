@@ -18,13 +18,13 @@ include:
 
 {% set included_files = sudoers.included_files %}
 {% for included_file, spec in included_files.items() -%}
+    {%- if '/' not in included_file %}
+        {%- set included_file = sudoers.includedir ~ '/' ~ included_file %}
+    {%- endif %}
+
 sudoers include {{ included_file }}:
   file.managed:
-    {% if '/' in included_file %}
     - name: {{ included_file }}
-    {% else %}
-    - name: {{ sudoers.includedir }}/{{ included_file }}
-    {% endif %}
     - user: root
     - group: {{ sudoers.group }}
     - mode: 440
@@ -40,5 +40,15 @@ sudoers include {{ included_file }}:
       - file: {{ sudoers.configpath }}/sudoers
     - require_in:
       - file: {{ sudoers.includedir }}
+
+    {% elif sudoers.append_included_files_to_endof_main_config %}
+
+sudoers append {{ included_file }}:
+  file.append:
+    - name: {{ sudoers.configpath }}/sudoers
+    - text: '#include {{ included_file }}'
+    - require:
+      - file: sudoers include {{ included_file }}
     {% endif %}
+
 {% endfor %}

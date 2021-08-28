@@ -20,6 +20,7 @@ values:
       - millert
       - dowdy
       - mikef
+  append_included_files_to_endof_main_config: false
   arch: amd64
   configpath: /etc
   defaults:
