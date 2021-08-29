@@ -1,5 +1,18 @@
 # Changelog
 
+# [0.25.0](https://github.com/saltstack-formulas/sudoers-formula/compare/v0.24.0...v0.25.0) (2021-08-29)
+
+
+### Continuous Integration
+
+* **appended:** add second test suite ([38126a3](https://github.com/saltstack-formulas/sudoers-formula/commit/38126a31a6c27266111e96a02252a6e845fcb8f1))
+* **kitchen+ci:** update with latest `3003.2` pre-salted images [skip ci] ([93ae700](https://github.com/saltstack-formulas/sudoers-formula/commit/93ae700eede582e10e8f8d35a89b54a7de4afe1b))
+
+
+### Features
+
+* **ordering:** optionally append includefiles to main config ([751eff7](https://github.com/saltstack-formulas/sudoers-formula/commit/751eff7218883b18628306d1b9f9251ac4b3b361))
+
 # [0.24.0](https://github.com/saltstack-formulas/sudoers-formula/compare/v0.23.4...v0.24.0) (2021-08-18)
 
 
