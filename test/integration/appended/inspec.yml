@@ -5,7 +5,8 @@ name: appended
 title: sudoers formula
 maintainer: SaltStack Formulas
 license: Apache-2.0
-summary: Verify that the sudoers formula is setup and configured correctly
+# yamllint disable-line rule:line-length
+summary: Verify that the sudoers formula is setup and configured correctly (when appending to the main file)
 depends:
   - name: share
     path: test/integration/share

@@ -22,7 +22,7 @@ values:
         - ALL=(ALL) ALL
   includedir: /etc/sudoers.d
   manage_main_config: false
-  pkg: sudo
+  pkg: app-admin/sudo
   purge_includedir: false
   users:
     kitchen:
