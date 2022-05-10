@@ -1,0 +1,71 @@
+# yamllint disable rule:indentation rule:line-length
+# Ubuntu-22.04
+---
+values:
+  aliases:
+    commands:
+      PROCESSES:
+      - /usr/bin/nice
+      - /bin/kill
+      - /usr/bin/renice
+      - /usr/bin/pkill
+      - /usr/bin/top
+    hosts:
+      WEBSERVERS:
+      - www1
+      - www2
+      - www3
+    users:
+      ADMINS:
+      - millert
+      - dowdy
+      - mikef
+  append_included_files_to_endof_main_config: false
+  arch: amd64
+  configpath: /etc
+  defaults:
+    command_list:
+      PROCESSES: noexec
+    generic:
+    - env_reset
+    - mail_badpass
+    - secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    host_list:
+      www1: log_year, logfile=/var/log/sudo.log
+    runas_list:
+      root: '!set_logname'
+    user_list:
+      ADMINS: '!lecture'
+      johndoe: '!requiretty'
+  execprefix: /usr/sbin
+  group: root
+  groups:
+    sudo:
+    - ALL=(ALL) ALL
+    - 'ALL=(nodejs) NOPASSWD: ALL'
+  included_files:
+    /etc/sudoers.d/extra-file:
+      users:
+        foo:
+        - ALL=(ALL) ALL
+    extra-file-2:
+      groups:
+        bargroup:
+        - 'ALL=(ALL) NOPASSWD: ALL'
+    extra-file-3:
+      netgroups:
+        other_netgroup:
+        - ALL=(ALL) ALL
+  includedir: /etc/sudoers.d
+  manage_main_config: true
+  netgroups:
+    sysadmins:
+    - ALL=(ALL) ALL
+  pkg: sudo
+  purge_includedir: false
+  users:
+    johndoe:
+    - ALL=(ALL) ALL
+    - 'ALL=(root) NOPASSWD: /etc/init.d/httpd'
+    kitchen:
+    - 'ALL=(root) NOPASSWD: ALL'
